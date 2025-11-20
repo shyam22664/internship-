@@ -1,0 +1,91 @@
+:root{
+  --bg:#f1f7ff;
+  --primary:#0a66c2;
+  --accent:#eaf3ff;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --radius:12px;
+  --shadow: 0 10px 30px rgba(12, 40, 80, 0.08);
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:var(--bg); color:#0f1724; margin:0; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+
+/* Topbar */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:linear-gradient(90deg,var(--primary),#0b5bb0);color:#fff;position:sticky;top:0;z-index:60;box-shadow:var(--shadow)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo-mark{width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px}
+.brand-name{font-weight:700;font-size:18px;display:block}
+.brand-tag{display:block;font-size:12px;color:rgba(255,255,255,0.9)}
+
+/* Hamburger */
+.hamburger{background:transparent;border:none;color:inherit;font-size:22px;padding:8px;cursor:pointer}
+
+/* Side menu */
+.side-menu{position:fixed;left:0;top:0;height:100vh;width:0;Overflow:hidden;background:var(--card);box-shadow:0 20px 60px rgba(8,30,80,0.12);transition:width .28s ease;z-index:70}
+.side-inner{padding:22px 18px;display:flex;flex-direction:column;min-height:100%}
+.side-inner .close{align-self:flex-end;background:transparent;border:none;font-size:30px;cursor:pointer;color:var(--muted)}
+.navlist{list-style:none;padding:6px 0;margin-top:6px}
+.navlist li{margin:6px 0}
+.navlist a{display:inline-block;padding:10px 6px;color:#07305f;text-decoration:none;font-weight:600;border-radius:8px}
+.navlist a:hover{background:var(--accent)}
+
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:28px 20px}
+.main{min-height:calc(100vh - 120px)}
+
+/* Hero */
+.hero{display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap}
+.hero-left{flex:1;min-width:300px}
+.hero-right{width:360px;flex:0 0 360px}
+
+/* Cards */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+.verified-card{position:relative;overflow:hidden;padding-top:26px}
+.verified-card .badge{position:absolute;right:18px;top:18px;background:linear-gradient(90deg,#24b47e,#16a34a);color:#fff;padding:8px 12px;border-radius:999px;display:flex;align-items:center;gap:8px;font-weight:700;margin-bottom:12px;box-shadow:0 6px 18px rgba(20,90,50,0.12);transform:translateY(-6px);animation:badgePop .5s ease forwards}
+.verified-card .check{filter:drop-shadow(0 2px 6px rgba(16,100,50,0.25))}
+@keyframes badgePop{0%{transform:scale(.6) translateY(-8px);opacity:0}100%{transform:scale(1) translateY(0);opacity:1}}
+
+.card-body p{margin:8px 0;color:#0f1724}
+.verified-note{margin-top:12px;font-size:13px;color:var(--muted)}
+
+/* Internships */
+.internships-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:16px}
+.job-card{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(10,102,194,0.03),rgba(10,102,194,0.01));cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.job-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(6,34,92,0.08)}
+.job-card h4{margin-bottom:8px}
+.job-card .tag{margin-top:10px;display:inline-block;background:#e6f0ff;padding:6px 8px;border-radius:8px;color:var(--primary);font-weight:600}
+
+/* Modal */
+.modal{position:fixed;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(3,10,25,0.45);z-index:120}
+.modal-content{max-width:720px;background:var(--card);padding:22px;border-radius:12px;box-shadow:0 30px 60px rgba(6,20,40,0.25)}
+.modal-close{position:absolute;right:30px;top:22px;background:transparent;border:none;font-size:26px;color:var(--muted);cursor:pointer}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+
+/* Verify */
+.verify-row{display:flex;gap:10px;margin-top:12px}
+.verify-row input{flex:1;padding:12px;border-radius:10px;border:1px solid #d1d5db}
+.result h3{margin-top:0}
+.result p{color:var(--muted)}
+
+/* Contact */
+.contact-card p{margin:8px 0;color:#0f1724}
+
+/* Footer */
+.footer{padding:18px 20px;background:transparent;text-align:center;color:var(--muted);font-size:13px}
+
+/* Utilities */
+.hidden{display:none}
+.muted{color:var(--muted)}
+
+/* Responsive */
+@media (max-width:880px){
+  .internships-grid{grid-template-columns:1fr}
+  .hero-right{width:100%}
+  .hero{flex-direction:column-reverse}
+}
+@media (max-width:520px){
+  .brand-tag{display:none}
+  .hero-right{width:100%}
+  .container{padding:18px 14px}
+}

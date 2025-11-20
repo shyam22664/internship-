@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Edu Technologies — Internship Verification</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-mark" aria-hidden="true">E</div>
+      <div class="brand-text">
+        <span class="brand-name">Edu Technologies</span>
+        <small class="brand-tag">Internship Verification</small>
+      </div>
+    </div>
+
+    <button id="hamburger" class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+
+  <nav id="sideMenu" class="side-menu" aria-hidden="true">
+    <div class="side-inner">
+      <button class="close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+      <ul class="navlist">
+        <li><a href="#" onclick="showSection('home'); closeMenu()">Home</a></li>
+        <li><a href="#" onclick="showSection('internships'); closeMenu()">Internships</a></li>
+        <li><a href="#" onclick="showSection('verify'); closeMenu()">Verify</a></li>
+        <li><a href="#" onclick="showSection('contact'); closeMenu()">Contact</a></li>
+      </ul>
+
+      <div class="side-footer">
+        <small>Edu Technologies © 2025</small>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <!-- HOME -->
+    <section id="home" class="panel active">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-left">
+            <h1>Internship Verification</h1>
+            <p class="lead">Confirm internship authenticity in seconds — secure, simple, and instantly verifiable.</p>
+
+            <div class="card verified-card" aria-live="polite">
+              <div class="badge" title="Verified">
+                <svg class="check" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path d="M20.285 6.708L9 18l-5.285-5.292 1.428-1.416L9 15.176 18.857 5.293z" fill="white"/>
+                </svg>
+                <span>Verified</span>
+              </div>
+
+              <div class="card-body">
+                <p><strong>Name:</strong> P. Sai Shyam</p>
+                <p><strong>Role:</strong> Penetration Testing</p>
+                <p><strong>Internship ID:</strong> STYH567</p>
+                <p><strong>CIN PIN:</strong> IGH/234/JYT</p>
+                <p><strong>Duration:</strong> 15-06-2025 – 05-08-2025</p>
+                <p><strong>Certificate Issued:</strong> 10-08-2025</p>
+              </div>
+              <div class="verified-note">This certificate has been verified by Edu Technologies.</div>
+            </div>
+
+          </div>
+
+          <div class="hero-right">
+            <div class="card overview-card">
+              <h3>Company Overview</h3>
+              <p>Edu Technologies is a leading internship and skill development organisation. We provide industry‑certified training programs across cybersecurity, AI, cloud, and software development. Our mission is to empower students with real‑world skills.</p>
+              <p class="muted">Trusted by learners and employers worldwide.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIPS -->
+    <section id="internships" class="panel">
+      <div class="container">
+        <h2>Available Internships</h2>
+        <div class="grid internships-grid">
+          <article class="job-card" onclick="openInternshipModal('penetration')">
+            <h4>Penetration Testing</h4>
+            <p class="muted">Hands‑on red‑team skills and ethical hacking.</p>
+            <div class="tag">6 weeks</div>
+          </article>
+
+          <article class="job-card" onclick="openInternshipModal('web')">
+            <h4>Web Development</h4>
+            <p class="muted">Front‑end and back‑end full‑stack projects.</p>
+            <div class="tag">8 weeks</div>
+          </article>
+
+          <article class="job-card" onclick="openInternshipModal('data')">
+            <h4>Data Science</h4>
+            <p class="muted">ML pipelines, model building and deployment.</p>
+            <div class="tag">8 weeks</div>
+          </article>
+
+          <article class="job-card" onclick="openInternshipModal('cloud')">
+            <h4>Cloud Computing</h4>
+            <p class="muted">AWS/Azure fundamentals, containers and CI/CD.</p>
+            <div class="tag">6 weeks</div>
+          </article>
+
+          <article class="job-card" onclick="openInternshipModal('ethical')">
+            <h4>Ethical Hacking</h4>
+            <p class="muted">OSINT, wireless attacks, and red teaming.</p>
+            <div class="tag">4 weeks</div>
+          </article>
+        </div>
+
+        <div id="internshipModal" class="modal hidden" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+            <h3 id="modalTitle">Title</h3>
+            <p id="modalDesc">Description</p>
+            <div class="modal-actions">
+              <button class="apply-btn" onclick="onApply()">Apply Now</button>
+              <button class="secondary" onclick="closeModal()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERIFY -->
+    <section id="verify" class="panel">
+      <div class="container">
+        <h2>Verify Internship</h2>
+        <div class="card">
+          <p class="muted">Enter the Internship ID printed on the certificate to verify the record.</p>
+          <div class="verify-row">
+            <input id="verifyInput" type="text" placeholder="e.g. STYH567" />
+            <button class="apply-btn" onclick="verifyID()">Verify</button>
+          </div>
+        </div>
+
+        <div id="verifyResult" class="card result hidden" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="panel">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="card contact-card">
+          <p><strong>Email:</strong> support@edutech.com</p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/edutech_official" target="_blank">@edutech_official</a></p>
+          <p><strong>Phone:</strong> +91 90000 00000</p>
+          <p><strong>Website:</strong> <a href="https://www.edutech.com" target="_blank">www.edutech.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container small">
+      <small>Edu Technologies © 2025 | Verification Page</small>
+    </div>
+  </footer>
+
+</body>
+</html>
